@@ -15,8 +15,10 @@ export interface UserProps {
     phone?:    string;
     website?:  string;
     company?:  string|number;
+        street:string;
+
     Address?: {
-    street:  string;
+    street:string;
     suite:   string;
     city:    string;
     zipcode: string;
