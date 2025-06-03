@@ -3,7 +3,7 @@ import { UserData, UserProps } from "@/interfaces";
 import UserModal from "@/components/common/UserModal";
 import UserCard from "@/components/common/UserCard";
 
-const users: React.FC<UserProps> = ({}) => {
+const Users: React.FC<UserProps> = ({}) => {
     const [isModalOpen, setModalOpen] = useState(false);
       const [post, setPost] = useState<UserData | null>(null);
     
@@ -20,7 +20,13 @@ const users: React.FC<UserProps> = ({}) => {
           <button onClick={() => setModalOpen(true)}
             className="bg-blue-700 px-4 py-2 rounded-full text-white">New User</button>
         </div>
-       
+         <div className="grid grid-cols-3 gap-2 ">
+                  {
+                    posts?.map(({ name, email, username, id }: UserProps, key: number) => (
+                      <UserCard name={name} username={username} id={id} email={email} key={key} />
+                    ))
+                  }
+        </div>
           {isModalOpen && (
         <UserModal onClose={() => setModalOpen(false)} onSubmit={handleAddPost} />
       )}
@@ -37,4 +43,4 @@ export async function getStaticProps() {
     }
   }
 }
-export default users;
+export default Users;

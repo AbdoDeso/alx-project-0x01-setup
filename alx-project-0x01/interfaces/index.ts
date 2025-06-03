@@ -11,30 +11,28 @@ export interface UserProps {
     name:     string;
     username: string;
     email:    string;
-    address?:  Address;
+    address?:  string|number;
     phone?:    string;
     website?:  string;
-    company?:  Company;
-}
-
-export interface Address {
+    company?:  string|number;
+    Address?: {
     street:  string;
     suite:   string;
     city:    string;
     zipcode: string;
-    geo:     Geo;
+    geo:     string|number;
 }
-
-export interface Geo {
+  Geo?: {
     lat: string;
     lng: string;
 }
-
-export interface Company {
+  Company?: {
     name:        string;
     catchPhrase: string;
     bs:          string;
 }
+}
+ 
 // Post Creator Form Props
 export interface PostData {
   userId: number;
@@ -54,30 +52,31 @@ export interface UserData {
     name:     string;
     username: string;
     email?:    string;
-    address?:  Address;
+    address?:  string|number;
     phone?:    string;
     website?:  string;
-    company?:  Company;
-}
+    company?:  string|number;
 
-export interface Address {
+    Address?: {
     street:  string;
     suite:   string;
     city:    string;
     zipcode: string;
-    geo:     Geo;
+    geo:     string|number;
 }
 
-export interface Geo {
+Geo?: {
     lat: string;
     lng: string;
 }
 
-export interface Company {
+Company?: {
     name:        string;
     catchPhrase: string;
     bs:          string;
 }
+}
+
 
 export interface UserModalProps{
   onClose: () => void;
